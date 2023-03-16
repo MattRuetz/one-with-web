@@ -15,12 +15,18 @@ const Home = () => {
                 x: -500,
                 opacity: 0,
             });
-            tl.from('.pannel-r .ne-ith-eb span', {
-                duration: 0.8,
-                delay: '3s',
-                x: -500,
+            tl.from('.pannel-r', {
+                duration: 0.7,
+                delay: '2s',
+                x: -200,
                 opacity: 0,
-                stagger: 0.3,
+            });
+            tl.from('.pannel-r .ne-ith-eb span', {
+                duration: 0.4,
+                delay: '1s',
+                x: -100,
+                opacity: 0,
+                stagger: 0.15,
             });
 
             tl.from('.pannel-r .card', {
