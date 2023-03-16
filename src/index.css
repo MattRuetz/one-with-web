@@ -1,9 +1,106 @@
 /* GLOBAL CSS */
+@import url("https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;600;700&display=swap");
+
+:root {
+  --accent-bg: rgb(233, 116, 70);
+  --accent-bg-low-opacity: rgb(233, 116, 70, 0.3);
+  --faded-light: #ffffff88;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+span {
+  font-family: "Golos", sans-serif;
+}
+
 #main-nav {
-    background-color: rgb(240, 248, 255, 0.4);
-    transition: background-color 0.2s ease;
+  position: fixed;
+  top: 0;
+  width: 90%;
+  left: 10%;
+  z-index: 1;
+  background-color: var(--faded-light);
+  transition: background-color 0.2s ease;
 }
 
 #main-nav:hover {
-    background-color: rgb(240, 248, 255, 0.8);
+  background-color: rgb(240, 248, 255, 0.8);
 }
+
+.l-r-pannel-wrap {
+  display: flex;
+  flex-direction: row;
+  height: 100dvh;
+}
+
+.pannel-l {
+  padding-top: 10vh;
+  padding-left: clamp(50px, 10%, 200px);
+  margin-left: -40px;
+  background-color: var(--accent-bg);
+  color: black;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+}
+.pannel-r {
+  padding-top: 10vh;
+  z-index: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pannel-r .ne-ith-eb,
+.pannel-l #oww {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.pannel-l #oww {
+  align-items: right;
+  text-align: right;
+}
+.pannel-r .ne-ith-eb {
+  align-items: left;
+}
+
+.pannel-r .ne-ith-eb span {
+  font-size: 8rem;
+  letter-spacing: 8px;
+  line-height: 0;
+}
+
+.pannel-r .card {
+  width: clamp(20%, 500px, 80%);
+  height: fit-content;
+  padding: 18px;
+  margin-right: 200px;
+  margin-top: 10%;
+  border-radius: 30px;
+  border: 2px solid;
+  border-color: var(--accent-bg);
+  transition: border-color 0.2s ease;
+}
+
+.pannel-l #oww span {
+  font-size: 8rem;
+  letter-spacing: 8px;
+  line-height: 0;
+  font-weight: 600;
+}
+
+/* .info-card-sm {
+  width: clamp(120px, 50%, 400px);
+  padding: 15px 20px;
+  background: linear-gradient(
+    -60deg,
+    var(--faded-light) 0%,
+    rgb(255, 255, 255, 0.7) 100%
+  );
+  border: 2px solid #ffffff88;
+  border-radius: 20px;
+  color: #333;
+} */
