@@ -1,10 +1,14 @@
 /* GLOBAL CSS */
-@import url("https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;600;700&display=swap');
 
 :root {
-  --accent-bg: rgb(233, 116, 70);
-  --accent-bg-low-opacity: rgb(233, 116, 70, 0.3);
-  --faded-light: #ffffff88;
+    --primary: rgb(8, 32, 50);
+    --secondary: rgb(44, 57, 75);
+    --tertiary: rgb(51, 71, 86);
+    --accent: rgb(255, 76, 41);
+    --light: rgb(238, 238, 238);
+    --accent-bg-low-opacity: rgb(233, 116, 70, 0.3);
+    --faded-light: #ffffff88;
 }
 
 h1,
@@ -13,94 +17,97 @@ h3,
 h4,
 h5,
 span {
-  font-family: "Golos", sans-serif;
+    font-family: 'Golos', sans-serif;
 }
 
 #main-nav {
-  position: fixed;
-  top: 0;
-  width: 90%;
-  left: 10%;
-  z-index: 1;
-  background-color: var(--faded-light);
-  transition: background-color 0.2s ease;
+    position: fixed;
+    top: 0;
+    width: 90%;
+    left: 10%;
+    z-index: 1;
+    /* background-color: var(--faded-light); */
+    transition: background-color 0.2s ease;
 }
 
 #main-nav:hover {
-  background-color: rgb(240, 248, 255, 0.8);
+    /* background-color: rgb(240, 248, 255, 0.8); */
 }
 
 .l-r-pannel-wrap {
-  display: flex;
-  flex-direction: row;
-  height: 100dvh;
+    display: flex;
+    flex-direction: row;
+    height: 50dvh;
+    background-color: var(--primary);
 }
 
 .pannel-l {
-  padding-top: 10vh;
-  padding-left: clamp(50px, 10%, 200px);
-  margin-left: -40px;
-  background-color: var(--accent-bg);
-  color: black;
-  z-index: 1;
-  display: flex;
-  justify-content: space-between;
+    padding-top: 10vh;
+    padding-left: clamp(50px, 10%, 200px);
+    margin-left: -40px;
+    background-color: var(--light);
+    color: var(--primary);
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
 }
 .pannel-r {
-  padding-top: 10vh;
-  z-index: 0;
-  display: flex;
-  justify-content: space-between;
+    padding-top: 10vh;
+    z-index: 0;
+    display: flex;
+    justify-content: space-between;
+    color: var(--light);
+    width: 100%;
+    background: radial-gradient(
+            circle at var(--mouse-x) var(--mouse-y),
+            rgb(238, 238, 238, 0.2),
+            rgba(44, 57, 75, 0)
+        ),
+        radial-gradient(
+            circle at center left,
+            rgb(255, 76, 41, 1),
+            rgba(8, 32, 50, 1)
+        ),
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 290 290' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='6.34' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
 .pannel-r .ne-ith-eb,
 .pannel-l #oww {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 .pannel-l #oww {
-  align-items: right;
-  text-align: right;
+    align-items: right;
+    text-align: right;
 }
 .pannel-r .ne-ith-eb {
-  align-items: left;
+    align-items: left;
 }
 
 .pannel-r .ne-ith-eb span {
-  font-size: 8rem;
-  letter-spacing: 8px;
-  line-height: 0;
-}
-
-.pannel-r .card {
-  width: clamp(20%, 500px, 80%);
-  height: fit-content;
-  padding: 18px;
-  margin-right: 200px;
-  margin-top: 10%;
-  border-radius: 30px;
-  border: 2px solid;
-  border-color: var(--accent-bg);
-  transition: border-color 0.2s ease;
+    font-size: 8rem;
+    letter-spacing: 8px;
+    line-height: 0;
 }
 
 .pannel-l #oww span {
-  font-size: 8rem;
-  letter-spacing: 8px;
-  line-height: 0;
-  font-weight: 600;
+    font-size: 8rem;
+    letter-spacing: 8px;
+    line-height: 0;
+    font-weight: 600;
 }
 
-/* .info-card-sm {
-  width: clamp(120px, 50%, 400px);
-  padding: 15px 20px;
-  background: linear-gradient(
-    -60deg,
-    var(--faded-light) 0%,
-    rgb(255, 255, 255, 0.7) 100%
-  );
-  border: 2px solid #ffffff88;
-  border-radius: 20px;
-  color: #333;
-} */
+#intro {
+    background: var(--light);
+}
+
+.card.info-card {
+    padding: 3rem;
+    background: var(--faded-light);
+    box-shadow: 0 0 9px 2px rgba(0, 0, 0, 0.2);
+    border: 1px solid #ffffff88;
+    border-radius: 10px;
+    font-size: medium;
+    color: var(--tertiary);
+}
