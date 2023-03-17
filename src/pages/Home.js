@@ -28,7 +28,6 @@ const Home = () => {
                 opacity: 0,
                 stagger: 0.15,
             });
-
             tl.from('.pannel-r .card', {
                 duration: 0.8,
                 delay: '3s',
@@ -89,6 +88,17 @@ const Home = () => {
                 </div>
             </section>
             <section id="intro" className="p-5">
+                <div className="content">
+                    <div className="headline-wrap">
+                        <h2>Powerful Website Designs</h2>
+                    </div>
+                    <div className="p-wrap">
+                        <p>
+                            At One With Web, we make websites that are elegant,
+                            intuitive, and truly unique.
+                        </p>
+                    </div>
+                </div>
                 <div className="row mx-4">
                     <div className="col-4 col-md-3">
                         <div className="card info-card">

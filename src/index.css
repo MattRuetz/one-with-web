@@ -103,6 +103,15 @@ span {
     background: var(--light);
 }
 
+#intro .content {
+    margin: 3rem;
+}
+
+.headline-wrap h2 {
+    color: var(--tertiary);
+    font-weight: 700;
+}
+
 .card.info-card {
     padding: 3rem;
     background: var(--faded-light);
@@ -111,4 +120,5 @@ span {
     border-radius: 10px;
     font-size: medium;
     color: var(--tertiary);
+    margin: 2%;
 }
