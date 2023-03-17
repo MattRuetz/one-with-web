@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import InfoCard from '../components/InfoCard';
 import { cleanup } from '@testing-library/react';
+import { FaDungeon } from 'react-icons/fa';
 
 const Home = () => {
     const tl = gsap.timeline();
@@ -62,6 +63,18 @@ const Home = () => {
         };
 
         document.addEventListener('mousemove', moveGradient);
+
+        document.getElementById('shineCards').onmousemove = (e) => {
+            for (const card of document.getElementsByClassName('shineCard')) {
+                const rect = card.getBoundingClientRect(),
+                    x = e.clientX - rect.left,
+                    y = e.clientY - rect.top;
+
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            }
+        };
+
         return function cleanup() {
             document.removeEventListener('mousemove', moveGradient);
         };
@@ -88,95 +101,109 @@ const Home = () => {
                 </div>
             </section>
             <section id="intro" className="p-5">
-                <div className="content">
-                    <div className="headline-wrap">
-                        <h2>Powerful Website Designs</h2>
-                    </div>
-                    <div className="p-wrap">
-                        <p>
-                            At One With Web, we make websites that are elegant,
-                            intuitive, and truly unique.
-                        </p>
-                    </div>
-                </div>
-                <div className="row mx-4">
-                    <div className="col-4 col-md-3">
-                        <div className="card info-card">
-                            <InfoCard
-                                content={[
-                                    `One With Web is a small team of developers dedicated to creating
-          appealing, effective websites for small businesses. We understand the
-          importance of a well-designed website and are committed to bringing
-          your vision to life.`,
-                                    `Whether you need a simple brochure site or a
-          complex e-commerce platform, our experienced developers will work with
-          you every step of the way to achieve your business goals. With our
-          expertise in web development, we'll create a website that not only
-          looks great but also effectively reaches your target audience. Choose
-          One With Web to take your business to the next level.`,
-                                ]}
-                            />
+                <div id="shineCards">
+                    <div className="shineCard">
+                        <div className="shineCard-content">
+                            <div className="shineCard-image">
+                                <FaDungeon />
+                            </div>
+                            <div className="shineCard-info-wrapper">
+                                <div className="shineCard-info">
+                                    <i className="fa-duotone fa-apartment"></i>
+                                    <div className="shineCard-info-title">
+                                        <h3>Apartments</h3>
+                                        <h4>Places to be apart. Wait, what?</h4>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div className="col-4 col-md-3">
-                        <div className="card info-card">
-                            <InfoCard
-                                content={[
-                                    `One With Web is a small team of developers dedicated to creating
-          appealing, effective websites for small businesses. We understand the
-          importance of a well-designed website and are committed to bringing
-          your vision to life.`,
-                                    `Whether you need a simple brochure site or a
-          complex e-commerce platform, our experienced developers will work with
-          you every step of the way to achieve your business goals. With our
-          expertise in web development, we'll create a website that not only
-          looks great but also effectively reaches your target audience. Choose
-          One With Web to take your business to the next level.`,
-                                ]}
-                            />
+                    <div className="shineCard">
+                        <div className="shineCard-content">
+                            <div className="shineCard-image">
+                                <i className="fa-duotone fa-unicorn"></i>
+                            </div>
+                            <div className="shineCard-info-wrapper">
+                                <div className="shineCard-info">
+                                    <i className="fa-duotone fa-unicorn"></i>
+                                    <div className="shineCard-info-title">
+                                        <h3>Unicorns</h3>
+                                        <h4>A single corn. Er, I mean horn.</h4>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div className="col-4 col-md-3">
-                        <div className="card info-card">
-                            <InfoCard
-                                content={[
-                                    `One With Web is a small team of developers dedicated to creating
-          appealing, effective websites for small businesses. We understand the
-          importance of a well-designed website and are committed to bringing
-          your vision to life.`,
-                                    `Whether you need a simple brochure site or a
-          complex e-commerce platform, our experienced developers will work with
-          you every step of the way to achieve your business goals. With our
-          expertise in web development, we'll create a website that not only
-          looks great but also effectively reaches your target audience. Choose
-          One With Web to take your business to the next level.`,
-                                ]}
-                            />
+                    <div className="shineCard">
+                        <div className="shineCard-content">
+                            <div className="shineCard-image">
+                                <i className="fa-duotone fa-blender-phone"></i>
+                            </div>
+                            <div className="shineCard-info-wrapper">
+                                <div className="shineCard-info">
+                                    <i className="fa-duotone fa-blender-phone"></i>
+                                    <div className="shineCard-info-title">
+                                        <h3>Blender Phones</h3>
+                                        <h4>
+                                            These absolutely deserve to exist.
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div className="col-4 col-md-3">
-                        <div className="card info-card">
-                            <InfoCard
-                                content={[
-                                    `One With Web is a small team of developers dedicated to creating
-          appealing, effective websites for small businesses. We understand the
-          importance of a well-designed website and are committed to bringing
-          your vision to life.`,
-                                    `Whether you need a simple brochure site or a
-          complex e-commerce platform, our experienced developers will work with
-          you every step of the way to achieve your business goals. With our
-          expertise in web development, we'll create a website that not only
-          looks great but also effectively reaches your target audience. Choose
-          One With Web to take your business to the next level.`,
-                                ]}
-                            />
+                    <div className="shineCard">
+                        <div className="shineCard-content">
+                            <div className="shineCard-image">
+                                <i className="fa-duotone fa-person-to-portal"></i>
+                            </div>
+                            <div className="shineCard-info-wrapper">
+                                <div className="shineCard-info">
+                                    <i className="fa-duotone fa-person-to-portal"></i>
+                                    <div className="shineCard-info-title">
+                                        <h3>Adios</h3>
+                                        <h4>See you...</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="shineCard">
+                        <div className="shineCard-content">
+                            <div className="shineCard-image">
+                                <i className="fa-duotone fa-person-from-portal"></i>
+                            </div>
+                            <div className="shineCard-info-wrapper">
+                                <div className="shineCard-info">
+                                    <i className="fa-duotone fa-person-from-portal"></i>
+                                    <div className="shineCard-info-title">
+                                        <h3>I mean hello</h3>
+                                        <h4>...over here.</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="shineCard">
+                        <div className="shineCard-content">
+                            <div className="shineCard-image">
+                                <i className="fa-duotone fa-otter"></i>
+                            </div>
+                            <div className="shineCard-info-wrapper">
+                                <div className="shineCard-info">
+                                    <i className="fa-duotone fa-otter"></i>
+                                    <div className="shineCard-info-title">
+                                        <h3>Otters</h3>
+                                        <h4>
+                                            Look at me, imma cute lil fella.
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
-            {/* <section id='info' className='section'>
-        INFO SECTION
-      </section> */}
         </>
     );
 };
