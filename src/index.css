@@ -1,21 +1,21 @@
 /* GLOBAL CSS */
-@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;600;700&display=swap");
 
 :root {
-    /* --primary: rgb(8, 32, 50);
+  /* --primary: rgb(8, 32, 50);
     --secondary: rgb(44, 57, 75);
     --tertiary: rgb(51, 71, 86);
     --accent: rgb(255, 76, 41);
     --light: rgb(238, 238, 238); */
-    --primary: #cbe4de;
-    --secondary: #0e8388;
-    --tertiary: #2e4f4f;
-    --accent: #e7b10a;
-    --main-bg: rgb(23, 23, 23);
-    --accent-bg-low-opacity: rgb(233, 116, 70, 0.3);
-    --faded-light: #ffffff88;
-    --bg-color: #2c3333;
-    --shineCard-color: rgb(23, 23, 23);
+  --primary: #cbe4de;
+  --secondary: #0e8388;
+  --tertiary: #2e4f4f;
+  --accent: #e7b10a;
+  --main-bg: rgb(23, 23, 23);
+  --accent-bg-low-opacity: rgb(233, 116, 70, 0.3);
+  --faded-light: #ffffff11;
+  --bg-color: #2c3333;
+  --shineCard-color: rgb(23, 23, 23);
 }
 
 h1,
@@ -24,296 +24,299 @@ h3,
 h4,
 h5,
 span {
-    font-family: 'Golos', sans-serif;
+  font-family: "Golos", sans-serif;
 }
 
 #main-nav {
-    position: fixed;
-    top: 0;
-    width: 90%;
-    left: 10%;
-    z-index: 1;
-    /* background-color: var(--faded-light); */
-    transition: background-color 0.2s ease;
+  position: fixed;
+  top: 0;
+  width: 90%;
+  left: 10%;
+  z-index: 1;
+  /* background-color: var(--faded-light); */
+  transition: background-color 0.2s ease;
 }
 
 #main-nav:hover {
-    /* background-color: rgb(240, 248, 255, 0.8); */
+  /* background-color: rgb(240, 248, 255, 0.8); */
 }
 
 .l-r-pannel-wrap {
-    display: flex;
-    flex-direction: row;
-    height: 50dvh;
-    background-color: var(--main-bg);
+  display: flex;
+  flex-direction: row;
+  height: 50dvh;
+  background-color: var(--main-bg);
 }
 
 .pannel-l,
 .pannel-r {
-    padding-top: 3vh;
-    display: flex;
-    justify-content: space-between;
+  padding-top: 3vh;
+  display: flex;
+  justify-content: space-between;
+  z-index: 0;
 }
 .pannel-l {
-    padding-left: clamp(50px, 10%, 200px);
-    margin-left: -40px;
-    background-color: var(--main-bg);
-    color: var(--primary);
-    z-index: 1;
+  padding-left: clamp(50px, 10%, 200px);
+  margin-left: -40px;
+  background-color: var(--main-bg);
+  color: var(--primary);
+  z-index: 1;
 }
 .pannel-r {
-    z-index: 0;
-    color: var(--main-bg);
-    width: 100%;
-    background: radial-gradient(
-            circle at var(--mouse-x) var(--mouse-y),
-            rgb(238, 238, 238, 0.3),
-            rgba(44, 57, 75, 0)
-        ),
-        radial-gradient(
-            circle at 5% 35%,
-            var(--accent),
-            var(--secondary),
-            var(--main-bg)
-        ),
-        url("data:image/svg+xml,%3Csvg viewBox='0 0 290 290' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='6.34' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  z-index: 0;
+  color: var(--main-bg);
+  width: 100%;
+  border-bottom-left-radius: 25px;
+  background: radial-gradient(
+      circle at var(--mouse-x) var(--mouse-y),
+      rgb(238, 238, 238, 0.3),
+      rgba(44, 57, 75, 0)
+    ),
+    radial-gradient(
+      circle at 5% 35%,
+      var(--accent),
+      var(--secondary),
+      var(--main-bg)
+    ),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 290 290' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='6.34' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
 .pannel-r .ne-ith-eb,
 .pannel-l #oww {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 .pannel-l #oww {
-    align-items: right;
-    text-align: right;
+  align-items: right;
+  text-align: right;
 }
 .pannel-r .ne-ith-eb {
-    align-items: left;
+  align-items: left;
 }
 
 .pannel-r .ne-ith-eb span,
 .pannel-l #oww span {
-    font-size: clamp(8vh, 8rem, 12vh);
-    letter-spacing: 8px;
-    line-height: 0;
+  font-size: clamp(8vh, 8rem, 12vh);
+  letter-spacing: 8px;
+  line-height: 0;
 }
 
 .pannel-l #oww span {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 #intro {
-    background: linear-gradient(
-        180deg,
-        var(--main-bg),
-        var(--bg-color),
-        var(--bg-color)
-    );
-    display: flex;
-    justify-content: center;
+  background: linear-gradient(
+    180deg,
+    var(--main-bg),
+    var(--bg-color),
+    var(--bg-color)
+  );
+  display: flex;
+  justify-content: center;
 }
 
 #intro .content {
-    margin: 3rem;
+  margin: 3rem;
 }
 
 .headline-wrap h2 {
-    color: var(--tertiary);
-    font-weight: 700;
+  color: var(--tertiary);
+  font-weight: 700;
 }
 
 .card.info-card {
-    padding: 3rem;
-    background: var(--faded-light);
-    box-shadow: 0 0 9px 2px rgba(0, 0, 0, 0.2);
-    border: 1px solid #ffffff88;
-    border-radius: 10px;
-    font-size: medium;
-    color: var(--tertiary);
-    margin: 2%;
+  padding: 3rem;
+  background: var(--faded-light);
+  box-shadow: 0 0 9px 2px rgba(0, 0, 0, 0.2);
+  border: 1px solid #ffffff88;
+  border-radius: 10px;
+  font-size: medium;
+  color: var(--tertiary);
+  margin: 2%;
 }
+
 /* Cool hover cards// */
 
 #shineCards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    max-width: 1216px;
-    width: calc(100% - 20px);
-    justify-content: center;
-    /* background-color: var(--accent); */
-    padding: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  max-width: 1216px;
+  width: calc(100% - 20px);
+  justify-content: center;
+  /* background-color: var(--accent); */
+  padding: 40px;
 }
 
 #shineCards:hover > .shineCard::after {
-    opacity: 1;
+  opacity: 1;
 }
 
 .shineCard {
-    /* background-color: var(--accent); */
-    background: radial-gradient(
-        circle at -20% -40%,
-        var(--accent),
-        var(--secondary),
-        var(--main-bg)
-    );
-    border-radius: 10px;
-    cursor: pointer;
-    display: flex;
-    height: 260px;
-    flex-direction: column;
-    position: relative;
-    width: 300px;
+  /* background-color: var(--accent); */
+  background: radial-gradient(
+    circle at -20% -40%,
+    var(--accent),
+    var(--secondary),
+    var(--main-bg)
+  );
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  height: 260px;
+  flex-direction: column;
+  position: relative;
+  width: 300px;
 }
 
 .shineCard:hover::before {
-    opacity: 1;
+  opacity: 1;
 }
 
 .shineCard::before,
 .shineCard::after {
-    border-radius: inherit;
-    content: '';
-    height: 100%;
-    left: 0px;
-    opacity: 0;
-    position: absolute;
-    top: 0px;
-    transition: opacity 500ms;
-    width: 100%;
+  border-radius: inherit;
+  content: "";
+  height: 100%;
+  left: 0px;
+  opacity: 0;
+  position: absolute;
+  top: 0px;
+  transition: opacity 500ms;
+  width: 100%;
 }
 
 .shineCard::before {
-    background: radial-gradient(
-        800px circle at var(--mouse-x) var(--mouse-y),
-        rgba(255, 255, 255, 0.1),
-        transparent 40%
-    );
-    z-index: 3;
+  background: radial-gradient(
+    800px circle at var(--mouse-x) var(--mouse-y),
+    rgba(255, 255, 255, 0.1),
+    transparent 40%
+  );
+  z-index: 3;
 }
 
 .shineCard::after {
-    background: radial-gradient(
-        600px circle at var(--mouse-x) var(--mouse-y),
-        rgba(255, 255, 255, 0.4),
-        transparent 40%
-    );
-    z-index: 1;
+  background: radial-gradient(
+    600px circle at var(--mouse-x) var(--mouse-y),
+    rgba(255, 255, 255, 0.4),
+    transparent 40%
+  );
+  z-index: 1;
 }
 
 .shineCard > .shineCard-content {
-    background-color: var(--shineCard-color);
-    border-radius: inherit;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    inset: 1px;
-    padding: 10px;
-    position: absolute;
-    z-index: 2;
+  background-color: var(--shineCard-color);
+  border-radius: inherit;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  inset: 1px;
+  padding: 10px;
+  position: absolute;
+  z-index: 2;
 }
 
 /* -- ↓ ↓ ↓ extra shineCard content styles ↓ ↓ ↓ -- */
 
 .shineCard-image {
-    align-items: center;
-    display: flex;
-    height: 140px;
-    justify-content: center;
-    overflow: hidden;
+  align-items: center;
+  display: flex;
+  height: 140px;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .shineCard-image > i {
-    font-size: 6em;
-    opacity: 0.25;
+  font-size: 6em;
+  opacity: 0.25;
 }
 
 .shineCard-info-wrapper {
-    align-items: center;
-    display: flex;
-    flex-grow: 1;
-    justify-content: flex-start;
-    padding: 0px 20px;
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-start;
+  padding: 0px 20px;
 }
 
 .shineCard-info {
-    align-items: flex-start;
-    display: flex;
-    gap: 10px;
+  align-items: flex-start;
+  display: flex;
+  gap: 10px;
 }
 
 .shineCard-info > i {
-    font-size: 1em;
-    height: 20px;
-    line-height: 20px;
+  font-size: 1em;
+  height: 20px;
+  line-height: 20px;
 }
 
 .shineCard-info-title > h3 {
-    font-size: 1.1em;
-    line-height: 20px;
+  font-size: 1.1em;
+  line-height: 20px;
 }
 
 .shineCard-info-title > h4 {
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 0.85em;
-    margin-top: 8px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.85em;
+  margin-top: 8px;
 }
 
 /* -- ↓ ↓ ↓ some responsiveness ↓ ↓ ↓ -- */
 
 @media (max-width: 1000px) {
-    body {
-        align-items: flex-start;
-        overflow: auto;
-    }
+  body {
+    align-items: flex-start;
+    overflow: auto;
+  }
 
-    #shineCards {
-        max-width: 1000px;
-        padding: 10px 0px;
-    }
+  #shineCards {
+    max-width: 1000px;
+    padding: 10px 0px;
+  }
 
-    .shineCard {
-        flex-shrink: 1;
-        width: calc(80% - 4px);
-    }
+  .shineCard {
+    flex-shrink: 1;
+    width: calc(80% - 4px);
+  }
 }
 
 @media (max-width: 500px) {
-    .shineCard {
-        width: 100%;
-        height: 180px;
-    }
+  .shineCard {
+    width: 100%;
+    height: 180px;
+  }
 
-    .shineCard-image {
-        height: 80px;
-    }
+  .shineCard-image {
+    height: 80px;
+  }
 
-    .shineCard-image > i {
-        font-size: 3em;
-    }
+  .shineCard-image > i {
+    font-size: 3em;
+  }
 
-    .shineCard-info-wrapper {
-        padding: 0px 10px;
-    }
+  .shineCard-info-wrapper {
+    padding: 0px 10px;
+  }
 
-    .shineCard-info > i {
-        font-size: 0.8em;
-    }
+  .shineCard-info > i {
+    font-size: 0.8em;
+  }
 
-    .shineCard-info-title > h3 {
-        font-size: 0.9em;
-    }
+  .shineCard-info-title > h3 {
+    font-size: 0.9em;
+  }
 
-    .shineCard-info-title > h4 {
-        font-size: 0.8em;
-        margin-top: 4px;
-    }
+  .shineCard-info-title > h4 {
+    font-size: 0.8em;
+    margin-top: 4px;
+  }
 }
 
 @media (max-width: 320px) {
-    .shineCard {
-        width: 100%;
-    }
+  .shineCard {
+    width: 100%;
+  }
 }
