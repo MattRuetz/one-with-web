@@ -2,14 +2,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;600;700&display=swap');
 
 :root {
-    --primary: rgb(8, 32, 50);
+    /* --primary: rgb(8, 32, 50);
     --secondary: rgb(44, 57, 75);
     --tertiary: rgb(51, 71, 86);
     --accent: rgb(255, 76, 41);
-    --light: rgb(238, 238, 238);
+    --light: rgb(238, 238, 238); */
+    --primary: #cbe4de;
+    --secondary: #0e8388;
+    --tertiary: #2e4f4f;
+    --accent: #e7b10a;
+    --main-bg: rgb(23, 23, 23);
     --accent-bg-low-opacity: rgb(233, 116, 70, 0.3);
     --faded-light: #ffffff88;
-    --bg-color: rgb(20, 20, 20);
+    --bg-color: #2c3333;
     --shineCard-color: rgb(23, 23, 23);
 }
 
@@ -40,36 +45,36 @@ span {
     display: flex;
     flex-direction: row;
     height: 50dvh;
-    background-color: var(--primary);
+    background-color: var(--main-bg);
 }
 
-.pannel-l {
-    padding-top: 10vh;
-    padding-left: clamp(50px, 10%, 200px);
-    margin-left: -40px;
-    background-color: var(--light);
-    color: var(--primary);
-    z-index: 1;
+.pannel-l,
+.pannel-r {
+    padding-top: 3vh;
     display: flex;
     justify-content: space-between;
 }
+.pannel-l {
+    padding-left: clamp(50px, 10%, 200px);
+    margin-left: -40px;
+    background-color: var(--main-bg);
+    color: var(--primary);
+    z-index: 1;
+}
 .pannel-r {
-    padding-top: 10vh;
     z-index: 0;
-    display: flex;
-    justify-content: space-between;
-    color: var(--light);
+    color: var(--main-bg);
     width: 100%;
     background: radial-gradient(
             circle at var(--mouse-x) var(--mouse-y),
-            rgb(238, 238, 238, 0.2),
+            rgb(238, 238, 238, 0.3),
             rgba(44, 57, 75, 0)
         ),
         radial-gradient(
             circle at 5% 35%,
-            rgb(255, 76, 41, 1),
-            rgba(8, 32, 50, 0.8),
-            rgba(8, 32, 50, 1)
+            var(--accent),
+            var(--secondary),
+            var(--main-bg)
         ),
         url("data:image/svg+xml,%3Csvg viewBox='0 0 290 290' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='6.34' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
@@ -78,7 +83,7 @@ span {
 .pannel-l #oww {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 .pannel-l #oww {
     align-items: right;
@@ -88,21 +93,26 @@ span {
     align-items: left;
 }
 
-.pannel-r .ne-ith-eb span {
-    font-size: 8rem;
+.pannel-r .ne-ith-eb span,
+.pannel-l #oww span {
+    font-size: clamp(8vh, 8rem, 12vh);
     letter-spacing: 8px;
     line-height: 0;
 }
 
 .pannel-l #oww span {
-    font-size: 8rem;
-    letter-spacing: 8px;
-    line-height: 0;
     font-weight: 600;
 }
 
 #intro {
-    background: var(--light);
+    background: linear-gradient(
+        180deg,
+        var(--main-bg),
+        var(--bg-color),
+        var(--bg-color)
+    );
+    display: flex;
+    justify-content: center;
 }
 
 #intro .content {
@@ -129,9 +139,12 @@ span {
 #shineCards {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-    max-width: 916px;
+    gap: 12px;
+    max-width: 1216px;
     width: calc(100% - 20px);
+    justify-content: center;
+    /* background-color: var(--accent); */
+    padding: 40px;
 }
 
 #shineCards:hover > .shineCard::after {
@@ -139,7 +152,13 @@ span {
 }
 
 .shineCard {
-    background-color: var(--primary);
+    /* background-color: var(--accent); */
+    background: radial-gradient(
+        circle at -20% -40%,
+        var(--accent),
+        var(--secondary),
+        var(--main-bg)
+    );
     border-radius: 10px;
     cursor: pointer;
     display: flex;
@@ -169,7 +188,7 @@ span {
 .shineCard::before {
     background: radial-gradient(
         800px circle at var(--mouse-x) var(--mouse-y),
-        rgba(255, 255, 255, 0.06),
+        rgba(255, 255, 255, 0.1),
         transparent 40%
     );
     z-index: 3;
@@ -257,12 +276,13 @@ span {
 
     .shineCard {
         flex-shrink: 1;
-        width: calc(50% - 4px);
+        width: calc(80% - 4px);
     }
 }
 
 @media (max-width: 500px) {
     .shineCard {
+        width: 100%;
         height: 180px;
     }
 

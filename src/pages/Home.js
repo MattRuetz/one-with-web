@@ -62,7 +62,7 @@ const Home = () => {
             }
         };
 
-        document.addEventListener('mousemove', moveGradient);
+        document.querySelector('.pannel-r').onmousemove = moveGradient;
 
         document.getElementById('shineCards').onmousemove = (e) => {
             for (const card of document.getElementsByClassName('shineCard')) {
@@ -111,8 +111,10 @@ const Home = () => {
                                 <div className="shineCard-info">
                                     <i className="fa-duotone fa-apartment"></i>
                                     <div className="shineCard-info-title">
-                                        <h3>Apartments</h3>
-                                        <h4>Places to be apart. Wait, what?</h4>
+                                        <h3>Bold Web Design</h3>
+                                        <h4>
+                                            Crank the volume of your branding
+                                        </h4>
                                     </div>
                                 </div>
                             </div>
@@ -127,8 +129,10 @@ const Home = () => {
                                 <div className="shineCard-info">
                                     <i className="fa-duotone fa-unicorn"></i>
                                     <div className="shineCard-info-title">
-                                        <h3>Unicorns</h3>
-                                        <h4>A single corn. Er, I mean horn.</h4>
+                                        <h3>Sensible Layouts</h3>
+                                        <h4>
+                                            Easy to explore = More conversions
+                                        </h4>
                                     </div>
                                 </div>
                             </div>
@@ -143,10 +147,8 @@ const Home = () => {
                                 <div className="shineCard-info">
                                     <i className="fa-duotone fa-blender-phone"></i>
                                     <div className="shineCard-info-title">
-                                        <h3>Blender Phones</h3>
-                                        <h4>
-                                            These absolutely deserve to exist.
-                                        </h4>
+                                        <h3>Full Access</h3>
+                                        <h4>Our dev team is your dev team.</h4>
                                     </div>
                                 </div>
                             </div>
@@ -161,8 +163,10 @@ const Home = () => {
                                 <div className="shineCard-info">
                                     <i className="fa-duotone fa-person-to-portal"></i>
                                     <div className="shineCard-info-title">
-                                        <h3>Adios</h3>
-                                        <h4>See you...</h4>
+                                        <h3>Complete Functionality</h3>
+                                        <h4>
+                                            Connect your site to key services
+                                        </h4>
                                     </div>
                                 </div>
                             </div>
@@ -177,8 +181,8 @@ const Home = () => {
                                 <div className="shineCard-info">
                                     <i className="fa-duotone fa-person-from-portal"></i>
                                     <div className="shineCard-info-title">
-                                        <h3>I mean hello</h3>
-                                        <h4>...over here.</h4>
+                                        <h3>On-Call Support</h3>
+                                        <h4>Don't get left behind</h4>
                                     </div>
                                 </div>
                             </div>
@@ -193,9 +197,10 @@ const Home = () => {
                                 <div className="shineCard-info">
                                     <i className="fa-duotone fa-otter"></i>
                                     <div className="shineCard-info-title">
-                                        <h3>Otters</h3>
+                                        <h3>More</h3>
                                         <h4>
-                                            Look at me, imma cute lil fella.
+                                            Learn more about who we are and how
+                                            we can help...
                                         </h4>
                                     </div>
                                 </div>
