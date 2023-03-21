@@ -1,6 +1,6 @@
 /* GLOBAL CSS */
 @import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;600;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Domine:wght@400;700&display=swap');
 :root {
     /* --primary: rgb(8, 32, 50);
     --secondary: rgb(44, 57, 75);
@@ -14,8 +14,12 @@
     --main-bg: rgb(23, 23, 23);
     --accent-bg-low-opacity: rgb(233, 116, 70, 0.3);
     --faded-light: #ffffff11;
-    --bg-color: #2c3333;
+    --bg-alt: #2c3333;
     --shineCard-color: rgb(23, 23, 23);
+
+    /* starting vals */
+    --mouse-x: 30%;
+    --mouse-y: 45%;
 }
 
 h1,
@@ -39,10 +43,6 @@ body {
     z-index: 1;
     /* background-color: var(--faded-light); */
     transition: background-color 0.2s ease;
-}
-
-#main-nav:hover {
-    /* background-color: rgb(240, 248, 255, 0.8); */
 }
 
 .l-r-pannel-wrap {
@@ -71,6 +71,9 @@ body {
     color: var(--main-bg);
     width: 100%;
     border-bottom-left-radius: 25px;
+}
+
+.dynamic-gradient {
     background: radial-gradient(
             circle at var(--mouse-x) var(--mouse-y),
             rgb(238, 238, 238, 0.3),
@@ -81,8 +84,7 @@ body {
             var(--accent),
             var(--secondary),
             var(--main-bg)
-        ),
-        url("data:image/svg+xml,%3Csvg viewBox='0 0 290 290' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='6.34' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        );
 }
 
 .pannel-r .ne-ith-eb,
@@ -111,34 +113,30 @@ body {
 }
 
 #intro {
-    background: linear-gradient(
-        180deg,
-        var(--main-bg),
-        var(--bg-color),
-        var(--bg-color)
-    );
-    display: flex;
-    justify-content: center;
+    background-color: var(--main-bg);
 }
 
-#intro .content {
-    margin: 3rem;
+#intro .icon {
+    padding-bottom: 8px;
+}
+
+#intro .heading h2 {
+    font-family: 'Domine', serif;
+}
+
+#intro .body {
+    font-size: large;
+}
+
+.shineCardsContainer {
+    background-color: var(--main-bg);
+    display: flex;
+    justify-content: center;
 }
 
 .headline-wrap h2 {
     color: var(--tertiary);
     font-weight: 700;
-}
-
-.card.info-card {
-    padding: 3rem;
-    background: var(--faded-light);
-    box-shadow: 0 0 9px 2px rgba(0, 0, 0, 0.2);
-    border: 1px solid #ffffff88;
-    border-radius: 10px;
-    font-size: medium;
-    color: var(--tertiary);
-    margin: 2%;
 }
 
 /* Cool hover cards// */
@@ -232,11 +230,19 @@ body {
     height: 140px;
     justify-content: center;
     overflow: hidden;
-}
-
-.shineCard-image > i {
     font-size: 6em;
     opacity: 0.25;
+    transition: all 0.3s ease;
+}
+
+.shineCard-image svg.myLogo {
+    filter: invert(100);
+    opacity: 0.6;
+    max-width: 11rem;
+}
+
+.shineCard:hover .shineCard-image {
+    opacity: 0.45;
 }
 
 .shineCard-info-wrapper {
@@ -265,9 +271,21 @@ body {
 }
 
 .shineCard-info-title > h4 {
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.6);
     font-size: 0.85em;
     margin-top: 8px;
+}
+
+#details {
+    /* clip-path: polygon(0 0, 0 880px, 100% 0); */
+    padding: clamp(1rem, 2%, 10rem);
+}
+#details .content-card {
+    background-color: var(--main-bg);
+    /* margin: clamp(3rem, 25%, 10rem); */
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: inset 0 0 12px 1px rgba(0, 0, 0, 0.5);
 }
 
 /* -- ↓ ↓ ↓ some responsiveness ↓ ↓ ↓ -- */
@@ -275,7 +293,7 @@ body {
 @media (max-width: 1000px) {
     body {
         align-items: flex-start;
-        overflow: auto;
+        overflow-x: hidden !important;
     }
 
     #shineCards {
@@ -312,6 +330,12 @@ body {
 }
 
 @media (max-width: 500px) {
+    .pannel-r .ne-ith-eb span,
+    .pannel-l #oww span {
+        font-size: clamp(5vh, 6rem, 12vh);
+        letter-spacing: 8px;
+        line-height: 0;
+    }
     .shineCard {
         width: 100%;
         height: 180px;
@@ -329,7 +353,7 @@ body {
         padding: 0px 10px;
     }
 
-    .shineCard-info > i {
+    .shineCard-image {
         font-size: 0.8em;
     }
 
