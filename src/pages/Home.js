@@ -10,6 +10,7 @@ import {
 } from 'react-icons/io5';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ShineCard from '../components/ShineCard';
+import VidCarousel from '../components/VidCarousel';
 import '../assets/OWW_svg.svg';
 gsap.registerPlugin(ScrollTrigger);
 
@@ -90,7 +91,6 @@ const Home = () => {
                 card.style.setProperty('--mouse-y', `${y}px`);
             }
         };
-
         return function cleanup() {
             document.removeEventListener('mousemove', moveGradient);
         };
@@ -124,26 +124,26 @@ const Home = () => {
             </section>
             <section id="intro">
                 <div className="row pt-5 px-lg-5 justify-content-start">
-                    <div className="col-7 pt-2">
+                    <div className="col-12 p-0">
                         <div className="heading container">
                             <h2>
                                 <TbWorldWww className="icon" />
                                 {'  '}Design + Development
                             </h2>
                         </div>
-                    </div>
-                    <div className="col-10 col-lg-8">
-                        <div className="body container pt-4">
-                            <span>
+                        <div className="text-body container p-4 pb-2 bg-light rounded-3">
+                            <p>
                                 Simplicity is key when it comes to creating
                                 great websites. Dealing with separate web
                                 designers and developers, and trying to keep
                                 communication clear can be tough. At One With
                                 Web, we set out to simplify this whole process.
-                                Our full-package approach means you only explain
-                                your need once, and then we take it the rest of
-                                the way!
-                            </span>
+                            </p>
+                            <p>
+                                Our <strong>full-package approach</strong> means
+                                you only explain your need once, and then we
+                                take it the rest of the way!
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -203,28 +203,44 @@ const Home = () => {
                     </div>
                 </div>
             </section>
-            <section id="details" className="dynamic-gradient">
-                <div className="row content-card pt-5 px-lg-3 justify-content-center">
-                    <div className="col-7 pt-2">
+            <section id="details">
+                <div className="row content-card py-5 px-lg-5 col-lg-10 col-xl-9 justify-content-left">
+                    <div className="col-12 col-md-4 col-lg-5 pt-2">
                         <div className="heading container">
-                            <h2>Design + Development</h2>
+                            <h2>
+                                Fast.
+                                <br />
+                                Responsive.
+                                <br />
+                                Powerful.
+                            </h2>
                         </div>
                     </div>
-                    <div className="col-10 col-lg-8">
-                        <div className="body container pt-4">
-                            <span>
-                                Simplicity is key when it comes to creating
-                                great websites. Dealing with separate web
-                                designers and developers, and trying to keep
-                                communication clear can be tough. At One With
-                                Web, we set out to simplify this whole process.
-                                Our full-package approach means you only explain
-                                your need once, and then we take it the rest of
-                                the way!
-                            </span>
+                    <div className="col-12 col-md-7 col-lg-7 bg-light rounded-3 mb-3">
+                        <div className="text-body container pt-4">
+                            <p>
+                                We want to see your imagination come to life!
+                                Our team is dedicated to making sure that every
+                                piece of your website matches your expectations.
+                            </p>
+                            <p className="underline-text">
+                                <strong>
+                                    <a
+                                        href="#"
+                                        className=""
+                                        style={{
+                                            color: 'unset',
+                                            textDecoration: 'unset',
+                                        }}
+                                    >
+                                        It's time to build your dream site!
+                                    </a>
+                                </strong>
+                            </p>
                         </div>
                     </div>
                 </div>
+                <VidCarousel />
             </section>
         </>
     );
