@@ -290,7 +290,7 @@ body {
     transition: all 0.3s ease;
 }
 
-.shineCard-image svg.myLogo {
+.shineCard-image .myLogo {
     filter: invert(100);
     opacity: 0.6;
     max-width: 11rem;
@@ -350,20 +350,22 @@ body {
 
 #details .content-card button {
     /* width: 75%; */
-    padding: 0;
+    padding: 1rem 2rem;
     font-size: larger;
     background-color: var(--faded-light);
     border-color: var(--primary);
+    box-shadow: 0 0 5px var(--accent);
 }
 
 button a {
-    padding: 3rem;
-    line-height: 3rem;
+    width: 100%;
+    height: 100%;
+    /* line-height: 3rem; */
 }
 
 #details .content-card button:hover {
-    background-color: var(--tertiary);
     border-color: var(--secondary);
+    box-shadow: 0 0 10px 3px var(--accent);
 }
 /* Carousel */
 #__next {
@@ -439,7 +441,11 @@ button a {
     }
 
     .shineCard-image {
-        font-size: 0.8em;
+        font-size: 3em;
+    }
+
+    .shineCard-image .myLogo {
+        max-width: 2em;
     }
 
     .shineCard-info-title > h3 {

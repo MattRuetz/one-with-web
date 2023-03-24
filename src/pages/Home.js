@@ -185,7 +185,13 @@ const Home = () => {
                             body={
                                 'Learn more about who we are and how we can help...'
                             }
-                            FaIcon={<img src={owwSvgLogo} alt="OWW" />}
+                            FaIcon={
+                                <img
+                                    className="myLogo"
+                                    src={owwSvgLogo}
+                                    alt="OWW"
+                                />
+                            }
                         />
                     </div>
                 </div>
