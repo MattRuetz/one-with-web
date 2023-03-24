@@ -27,7 +27,10 @@ h2,
 h3,
 h4,
 h5,
-span {
+p,
+span,
+a,
+button {
     font-family: 'Golos', sans-serif;
 }
 
@@ -46,7 +49,7 @@ body {
     right: 0;
     width: 100%;
     /* left: 10%; */
-    z-index: 1;
+    z-index: 10;
     /* background-color: var(--faded-light); */
     transition: background-color 0.2s ease;
 }
@@ -134,17 +137,45 @@ body {
     font-size: large;
 }
 
-.underline-text::after {
-    padding-top: 1rem;
-    content: ' →';
-    transition: all 0.2s ease;
-    line-height: 0;
+.color-text {
+    color: var(--primary);
+    font-weight: 700;
 }
 
-.underline-text:hover::after {
-    font-size: xx-large;
-    color: rgb(231, 177, 10);
-    cursor: pointer;
+.underline-text {
+    color: var(--primary);
+    border: 1px solid var(--secondary);
+    text-align: center;
+}
+
+.screen-preview.mobile {
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    position: relative;
+}
+.screen-preview.mobile img {
+    /* width: clamp(200px, 100%, 450px); */
+    /* width: inherit; */
+    bottom: 0;
+    left: 50%;
+    height: 105%;
+    z-index: 1;
+    position: absolute;
+    transform: translateX(-50%);
+}
+
+.screen-preview.mobile .video-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+
+.video-container video {
+    position: relative;
+    width: 100%;
+    height: inherit;
 }
 
 .shineCardsContainer {
@@ -308,6 +339,28 @@ body {
     padding: 0;
     border-radius: 10px;
     box-shadow: inset 0 0 12px 1px rgba(0, 0, 0, 0.5);
+}
+
+#details .content-card .center-container {
+    display: flex;
+    justify-content: center;
+}
+#details .content-card button {
+    /* width: 75%; */
+    padding: 0;
+    font-size: larger;
+    background-color: var(--faded-light);
+    border-color: var(--primary);
+}
+
+button a {
+    padding: 3rem;
+    line-height: 3rem;
+}
+
+#details .content-card button:hover {
+    background-color: var(--tertiary);
+    border-color: var(--secondary);
 }
 /* Carousel */
 #__next {
