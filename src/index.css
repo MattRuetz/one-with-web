@@ -7,12 +7,12 @@
     --tertiary: rgb(51, 71, 86);
     --accent: rgb(255, 76, 41);
     --light: rgb(238, 238, 238); */
-    --primary: #cbe4de;
-    --secondary: #0e8388;
-    --tertiary: #2e4f4f;
-    --accent: rgb(231, 177, 10);
+    --primary: #72d9aa;
+    --secondary: #37a38e;
+    --tertiary: #41c15d;
+    --accent: #ff8456;
     --main-bg: rgb(23, 23, 23);
-    --accent-low-opacity: rgb(231, 177, 10, 0.3);
+    --accent-low-opacity: rgb(255, 132, 86, 0.4);
     --faded-light: #ffffff11;
     --bg-alt: #2c3333;
     --shineCard-color: rgb(23, 23, 23);
@@ -54,6 +54,11 @@ body {
     transition: background-color 0.2s ease;
 }
 
+.center-container {
+    display: flex;
+    justify-content: center;
+}
+
 .l-r-pannel-wrap {
     display: flex;
     flex-direction: row;
@@ -85,11 +90,13 @@ body {
 .dynamic-gradient {
     background: radial-gradient(
             circle at var(--mouse-x) var(--mouse-y),
-            rgb(238, 238, 238, 0.3),
-            rgba(44, 57, 75, 0)
+            rgb(238, 238, 238, 0.5),
+            rgb(238, 238, 238, 0.1),
+            rgb(23, 23, 23, 0.5)
         ),
         radial-gradient(
             circle at 5% 35%,
+            var(--primary),
             var(--accent),
             var(--secondary),
             var(--main-bg)
@@ -328,9 +335,9 @@ body {
     /* clip-path: polygon(0 0, 0 880px, 100% 0); */
     padding: clamp(1rem, 2%, 10rem);
     background: radial-gradient(
-        circle at 40% 67%,
+        circle at 70% 87%,
         var(--secondary),
-        var(--tertiary)
+        var(--primary)
     );
     border-radius: 10px;
 }
@@ -341,10 +348,6 @@ body {
     box-shadow: inset 0 0 12px 1px rgba(0, 0, 0, 0.5);
 }
 
-#details .content-card .center-container {
-    display: flex;
-    justify-content: center;
-}
 #details .content-card button {
     /* width: 75%; */
     padding: 0;

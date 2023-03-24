@@ -63,8 +63,8 @@ const Home = () => {
     const moveGradElement = useRef();
 
     useEffect(() => {
-        moveGradElement.current.style.setProperty('--mouse-x', '40%');
-        moveGradElement.current.style.setProperty('--mouse-y', '100%');
+        moveGradElement.current.style.setProperty('--mouse-x', '0%');
+        moveGradElement.current.style.setProperty('--mouse-y', '50%');
         const moveGradient = (e) => {
             const winWidth = window.innerWidth;
             const winHeight = window.innerHeight;
