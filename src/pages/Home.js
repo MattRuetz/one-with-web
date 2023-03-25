@@ -188,7 +188,7 @@ const Home = () => {
                 </div>
             </section>
             <section id="cards">
-                <div className="container w-50">
+                <div className="heading container">
                     <h4>To put it simply...</h4>
                     <hr />
                 </div>
@@ -329,7 +329,7 @@ const Home = () => {
                         </div>
                     </div>
                     <div className="col-12 col-md-5">
-                        <div className="text-body container p-3 bg-light">
+                        <div className="text-body container p-3 pb-1 bg-light">
                             <p>
                                 We understand that every business is unique, and
                                 their website should reflect that. That's why we
@@ -337,6 +337,8 @@ const Home = () => {
                                 tailoring each website to meet our clients'
                                 specific needs and requirements.
                             </p>
+                        </div>
+                        <div className="text-body container mt-4 p-3 pb-1 bg-light">
                             <p>
                                 In the past we have built custom cost
                                 calculators, forms, multiple theme options,
