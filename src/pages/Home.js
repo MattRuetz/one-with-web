@@ -330,12 +330,15 @@ const Home = () => {
                     </div>
                     <div className="col-12 col-md-5">
                         <div className="text-body container p-3 pb-1 bg-light">
+                            <p className="color-text">
+                                Your business is unique, and a good website
+                                should reflect that.
+                            </p>
                             <p>
-                                We understand that every business is unique, and
-                                their website should reflect that. That's why we
-                                take a personalized approach to web development,
-                                tailoring each website to meet our clients'
-                                specific needs and requirements.
+                                That's why we take a personalized approach to
+                                web design + development, tailoring each piece
+                                of the website to meet the specific needs and
+                                requirements of our clients.
                             </p>
                         </div>
                         <div className="text-body container mt-4 p-3 pb-1 bg-light">

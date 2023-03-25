@@ -29,6 +29,7 @@ h4,
 h5 {
     font-family: 'Domine', serif;
 }
+
 p,
 span,
 a,
@@ -56,7 +57,12 @@ section {
     width: 100%;
     /* left: 10%; */
     z-index: 10;
-    /* background-color: var(--faded-light); */
+    background: radial-gradient(
+        circle at 0 0,
+        transparent,
+        transparent,
+        var(--primary)
+    );
     transition: background-color 0.2s ease;
 }
 
@@ -65,6 +71,9 @@ section {
     justify-content: center;
 }
 
+#hero {
+    padding-top: 0;
+}
 .l-r-pannel-wrap {
     display: flex;
     flex-direction: row;
@@ -212,7 +221,7 @@ section {
     max-width: 1216px;
     width: calc(100% - 20px);
     justify-content: center;
-    /* background-color: var(--accent); */
+    border-radius: 20px;
     padding: 40px;
 }
 
@@ -221,7 +230,6 @@ section {
 }
 
 .shineCard {
-    /* background-color: var(--accent); */
     background: radial-gradient(
         circle at -20% -40%,
         var(--secondary),
@@ -266,7 +274,7 @@ section {
     background: radial-gradient(
         600px circle at var(--mouse-x) var(--mouse-y),
         rgba(255, 255, 255, 0.4),
-        var(--accent-low-opacity),
+        var(--accent),
         transparent 40%
     );
     z-index: 1;
@@ -372,8 +380,8 @@ button a {
 }
 
 #responsive-preview .content-card button:hover {
-    border-color: var(--secondary);
-    box-shadow: 0 0 50px 3px var(--accent-low-opacity);
+    border-color: var(--accent);
+    box-shadow: 0 0 10px var(--accent-low-opacity);
 }
 
 #features {
@@ -459,10 +467,20 @@ button a {
         width: calc(80% - 4px);
     }
 
+    #main-nav {
+        background: none;
+    }
+
     #main-nav .navbar-collapse {
         /* text-align: end; */
-        border-radius: 20px 0 20px 20px;
+        border-radius: 10px 0 10px 10px;
         border: 3px solid var(--faded-light);
+        margin-left: clamp(100px, 60%, 800px);
+        background-color: var(--primary);
+    }
+
+    #main-nav .navbar-collapse .nav-link {
+        color: rgb(23, 23, 23);
     }
 
     #main-nav .container {
