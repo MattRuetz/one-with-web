@@ -5,8 +5,8 @@
     /* --primary: rgb(8, 32, 50);
     --secondary: rgb(44, 57, 75);
     --tertiary: rgb(51, 71, 86);
-    --accent: rgb(255, 76, 41);
-    --light: rgb(238, 238, 238); */
+    --accent: rgb(255, 76, 41);*/
+    --light: rgb(238, 238, 238);
     --primary: #72d9aa;
     --secondary: #37a38e;
     --tertiary: #41c15d;
@@ -26,7 +26,9 @@ h1,
 h2,
 h3,
 h4,
-h5,
+h5 {
+    font-family: 'Domine', serif;
+}
 p,
 span,
 a,
@@ -36,6 +38,10 @@ button {
 
 body {
     background-color: var(--main-bg);
+}
+
+section {
+    padding: 3rem 0;
 }
 
 #root {
@@ -162,8 +168,6 @@ body {
     position: relative;
 }
 .screen-preview.mobile img {
-    /* width: clamp(200px, 100%, 450px); */
-    /* width: inherit; */
     bottom: 0;
     left: 50%;
     height: 105%;
@@ -177,6 +181,9 @@ body {
     display: flex;
     justify-content: center;
     height: 100%;
+    border-radius: 30px;
+    box-shadow: 0 -10px 1000px 10px rgba(114, 217, 170, 0.3);
+    overflow: hidden;
 }
 
 .video-container video {
@@ -331,25 +338,25 @@ body {
     margin-top: 8px;
 }
 
-#details {
+#responsive-preview {
     /* clip-path: polygon(0 0, 0 880px, 100% 0); */
-    padding: clamp(1rem, 2%, 10rem);
+    padding: clamp(1rem, 1%, 10rem);
     background: radial-gradient(
-        circle at 70% 87%,
+        circle at 90% 100%,
         var(--secondary),
         var(--primary)
     );
     border-radius: 10px;
 }
-#details .content-card {
+#responsive-preview .content-card {
     background-color: var(--main-bg);
     padding: 0;
     border-radius: 10px;
     box-shadow: inset 0 0 12px 1px rgba(0, 0, 0, 0.5);
 }
 
-#details .content-card button {
-    /* width: 75%; */
+#responsive-preview .content-card button {
+    margin-bottom: 2rem;
     padding: 1rem 2rem;
     font-size: larger;
     background-color: var(--faded-light);
@@ -363,10 +370,63 @@ button a {
     /* line-height: 3rem; */
 }
 
-#details .content-card button:hover {
+#responsive-preview .content-card button:hover {
     border-color: var(--secondary);
     box-shadow: 0 0 10px 3px var(--accent);
 }
+
+#features {
+    min-height: 50dvh;
+}
+
+#features .row {
+    height: 100%;
+    display: flex;
+    padding: 2em;
+    justify-content: space-evenly;
+}
+
+.screenshot-triple {
+    display: flex;
+    justify-content: center;
+    /* align-items: bottom; */
+    height: 25vh;
+    width: 100%;
+    position: relative;
+}
+.screenshot-triple:hover > .first,
+.screenshot-triple.activated > .first {
+    transform: translate(-30%, -50%) rotate3d(0.2, 0.2, 0, 40deg);
+    box-shadow: -18px 18px 20px 10px rgba(0, 0, 0, 0.5);
+}
+.screenshot-triple:hover > .second,
+.screenshot-triple.activated > .second {
+    transform: rotate3d(0.2, 0.2, 0, 30deg);
+    box-shadow: -12px 12px 15px 5px rgba(0, 0, 0, 0.5);
+}
+.screenshot-triple:hover > .third,
+.screenshot-triple.activated > .third {
+    transform: translate(30%, 50%) rotate3d(0.2, 0.2, 0, 20deg);
+    box-shadow: -5px 5px 10px 0px rgba(0, 0, 0, 0.5);
+}
+.screenshot-triple img {
+    width: 60%;
+    transition: all 0.5s ease-in-out;
+    box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.5);
+}
+.screenshot-triple .first {
+    position: absolute;
+    left: 10%;
+}
+.screenshot-triple .second {
+    position: absolute;
+}
+.screenshot-triple .third {
+    position: absolute;
+    left: 30%;
+    z-index: 1;
+}
+
 /* Carousel */
 #__next {
     padding: 20px;

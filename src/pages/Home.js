@@ -47,12 +47,39 @@ const Home = () => {
                 duration: 0.5,
                 x: -200,
                 opacity: 0,
-                stagger: 0.1,
                 scrollTrigger: {
-                    trigger: '#intro',
-                    start: 'top center',
-                    end: 'top top',
+                    trigger: '#shineCards',
+                    start: '30% bottom',
+                    end: 'top 30%',
+                    scrub: 2,
+                },
+            });
+            tl.from('.screen-preview.mobile', {
+                duration: 0.5,
+                x: 400,
+                opacity: 0,
+                scrollTrigger: {
+                    trigger: '.screen-preview.mobile',
+                    start: 'top 90%',
+                    end: 'top 60%',
                     scrub: 3,
+                },
+            });
+            tl.from('.screenshot-triple', {
+                scrollTrigger: {
+                    trigger: '.screenshot-triple',
+                    start: 'top 70%',
+                    end: '+=0',
+                    scrub: 2,
+                    markers: true,
+                    onEnter: () =>
+                        document
+                            .querySelector('.screenshot-triple')
+                            .classList.add('activated'),
+                    onEnterBack: () =>
+                        document
+                            .querySelector('.screenshot-triple')
+                            .classList.remove('activated'),
                 },
             });
         }); // <- IMPORTANT! Scopes selector text
@@ -137,22 +164,34 @@ const Home = () => {
                         </div>
                         <div className="text-body container p-4 pb-2 bg-light rounded-3">
                             <p>
-                                Simplicity is key when it comes to creating
-                                great websites. Dealing with separate web
-                                designers and developers, and trying to keep
-                                communication clear can be tough. At One With
-                                Web, we set out to simplify this whole process.
+                                Clarity is key when it comes to creating great
+                                websites. Dealing with separate web designers
+                                and developers, budgeting for a massive team,
+                                and then being disapointed with the final
+                                result... Getting the website you want can be a
+                                real battle!
                             </p>
                             <p>
-                                Our <strong>full-package approach</strong> means
-                                you only explain your need once, and then we
-                                take it the rest of the way!
+                                At One With Web, we set out to simplify this
+                                whole process.
+                            </p>
+                            <p>
+                                Our{' '}
+                                <span className="color-text">
+                                    full-package approach
+                                </span>{' '}
+                                means you just tell us your needs, then leave
+                                the micromanagement to us.
                             </p>
                         </div>
                     </div>
                 </div>
             </section>
             <section id="cards">
+                <div className="container w-50">
+                    <h4>To put it simply...</h4>
+                    <hr />
+                </div>
                 <div className="shineCardsContainer p-5">
                     <div id="shineCards">
                         <ShineCard
@@ -196,11 +235,11 @@ const Home = () => {
                     </div>
                 </div>
             </section>
-            <section id="details">
-                <div className="row content-card px-lg-5">
+            <section id="responsive-preview">
+                <div className="row content-card">
                     <div className="col-12 col-lg-6 col-xl-8 py-3">
                         <div className="col-12 py-2">
-                            <div className="heading row">
+                            <div className="heading container">
                                 <h2>
                                     <em>
                                         Fast.
@@ -231,7 +270,10 @@ const Home = () => {
                                 </span>
                             </div>
                             <div className="center-container">
-                                <button className="btn btn-primary mt-5">
+                                <button
+                                    id="ctaButton"
+                                    className="btn btn-primary mt-5"
+                                >
                                     <a
                                         href="#"
                                         style={{
@@ -253,8 +295,56 @@ const Home = () => {
                                     src={profitalDemoVid}
                                     autoPlay
                                     muted
+                                    loop
                                 ></video>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="features">
+                <div className="row pt-5">
+                    <div className="heading container center-container">
+                        <h2>Made-To-Order</h2>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-12 col-md-6">
+                        <div className="screenshot-triple">
+                            <img
+                                className="first"
+                                src="https://images.unsplash.com/photo-1549833284-6a7df91c1f65?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+                                alt=""
+                            />
+                            <img
+                                className="second"
+                                src="https://images.unsplash.com/photo-1549985908-597a09ef0a7c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+                                alt=""
+                            />
+                            <img
+                                className="third"
+                                src="https://images.unsplash.com/photo-1550064824-8f993041ffd3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+                                alt=""
+                            />
+                        </div>
+                    </div>
+                    <div className="col-12 col-md-5">
+                        <div className="text-body container p-3 bg-light">
+                            <p>
+                                We understand that every business is unique, and
+                                their website should reflect that. That's why we
+                                take a personalized approach to web development,
+                                tailoring each website to meet our clients'
+                                specific needs and requirements.
+                            </p>
+                            <p>
+                                In the past we have built custom cost
+                                calculators, forms, multiple theme options,
+                                lively SVG animations, and much more. Our team
+                                is more than willing to take on any challenge
+                                that you can throw at us.. It's what we live
+                                for!
+                            </p>
                         </div>
                     </div>
                 </div>
