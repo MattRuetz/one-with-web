@@ -71,7 +71,7 @@ const Home = () => {
                     start: 'top 70%',
                     end: '+=0',
                     scrub: 2,
-                    markers: true,
+                    // markers: true,
                     onEnter: () =>
                         document
                             .querySelector('.screenshot-triple')
@@ -162,7 +162,7 @@ const Home = () => {
                                 {'  '}Design + Development
                             </h2>
                         </div>
-                        <div className="text-body container p-4 pb-2 bg-light rounded-3">
+                        <div className="text-body container pb-2">
                             <p>
                                 Clarity is key when it comes to creating great
                                 websites. Dealing with separate web designers
@@ -251,7 +251,7 @@ const Home = () => {
                                 </h2>
                             </div>
 
-                            <div className="text-body container p-3 bg-light">
+                            <div className="text-body container">
                                 <p>
                                     Customers now demand instant access to all
                                     of your site's features directly from their
@@ -329,7 +329,7 @@ const Home = () => {
                         </div>
                     </div>
                     <div className="col-12 col-md-5">
-                        <div className="text-body container p-3 pb-1 bg-light">
+                        <div className="text-body container pb-1 mb-4">
                             <p className="color-text">
                                 Your business is unique, and a good website
                                 should reflect that.
@@ -341,14 +341,16 @@ const Home = () => {
                                 requirements of our clients.
                             </p>
                         </div>
-                        <div className="text-body container mt-4 p-3 pb-1 bg-light">
+                        <div className="text-body container pb-1">
                             <p>
                                 In the past we have built custom cost
                                 calculators, forms, multiple theme options,
-                                lively SVG animations, and much more. Our team
-                                is more than willing to take on any challenge
-                                that you can throw at us.. It's what we live
-                                for!
+                                lively SVG animations, and much more. Custom
+                                elements like these add another level of
+                                intrigue and personalization to your online
+                                brand. Our team is more than willing to take on
+                                any idea that you can throw at us.. It's what we
+                                live for!
                             </p>
                         </div>
                     </div>
