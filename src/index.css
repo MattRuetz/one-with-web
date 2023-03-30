@@ -376,6 +376,8 @@ section {
     var(--primary)
   );
   border-radius: 10px;
+  position: relative;
+  z-index: 4;
 }
 #responsive-preview .content-card {
   background-color: var(--main-bg);
@@ -409,6 +411,8 @@ button a {
   min-height: 50dvh;
   padding-bottom: clamp(12vw, 100px, 30dvh);
   background-color: var(--main-bg);
+  z-index: 2;
+  position: relative;
 }
 
 #features .row {
@@ -470,36 +474,39 @@ button a {
 }
 
 #roadmap {
-  height: 100dvh;
+  height: 400dvh;
   width: 100vw;
   background-color: var(--primary);
-  z-index: 4;
+  z-index: 0;
+  padding: 0;
 }
 
 #roadmap .bar-container {
   position: relative;
   height: 100%;
+  z-index: 1;
 }
 
 #roadmap .bar-blank {
   background: white;
   width: 15px;
-  border-radius: 20px;
-  height: inherit;
+  height: 100vh;
   position: absolute;
   left: 20px;
 }
 #roadmap .bar-filled {
-  background: green;
+  background: var(--accent);
   width: 15px;
-  border-radius: 10px 10px 0 0;
-  height: 33vh;
+  border-radius: 10px;
+  height: calc(100vh + 10px);
   position: absolute;
   left: 20px;
+  z-index: 0;
 }
 .node-item {
   position: absolute;
   left: calc(11.5px);
+  z-index: 3;
 }
 .node.text {
   margin-left: calc(1% + 35px);
@@ -512,6 +519,7 @@ button a {
   background-color: white;
   position: absolute;
   border-radius: 50%;
+  z-index: 3;
 }
 
 /* -- ↓ ↓ ↓ some responsiveness ↓ ↓ ↓ -- */
