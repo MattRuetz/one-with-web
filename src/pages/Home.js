@@ -63,7 +63,7 @@ const Home = () => {
         scrollTrigger: {
           trigger: ".screen-preview.mobile",
           start: "top 90%",
-          end: "top 60%",
+          end: "+=30px",
           scrub: 3,
         },
       });
