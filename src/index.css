@@ -93,6 +93,11 @@ section {
 #hero {
     padding-top: 0;
 }
+
+.hidden {
+    display: none;
+}
+
 .l-r-pannel-wrap {
     display: flex;
     flex-direction: row;

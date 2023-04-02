@@ -7,7 +7,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 // Stages is an array of strings, each representing a stage
 const Roadmap = () => {
-    const [stageIndex, setStateIndex] = useState(-1);
+    const [showIndex, setShowIndex] = useState(-1);
+    const [hideIndex, setHideIndex] = useState(-1);
 
     useEffect(() => {
         const tl2 = gsap.timeline();
@@ -29,9 +30,12 @@ const Roadmap = () => {
                     trigger: '.seg-0',
                     start: 'top bottom',
                     end: 'top top',
-                    markers: true,
+                    // markers: true,
                     scrub: 2,
-                    onLeave: () => setStateIndex(0),
+                    onLeave: () => {
+                        setShowIndex(0);
+                        setHideIndex(-1);
+                    },
                 },
             });
 
@@ -45,10 +49,16 @@ const Roadmap = () => {
                             trigger: '#roadmap',
                             start: `${(index + 1) * window.innerHeight} center`,
                             end: `+=${window.innerHeight * 0.1}`,
-                            markers: true,
+                            // markers: true,
                             scrub: 2,
-                            onLeave: () => setStateIndex(index + 1),
-                            onLeaveBack: () => setStateIndex(index),
+                            onLeave: () => {
+                                setShowIndex(index + 1);
+                                setHideIndex(index);
+                            },
+                            onLeaveBack: () => {
+                                setShowIndex(index);
+                                setHideIndex(index + 1);
+                            },
                         },
                     })
                 );
@@ -93,7 +103,7 @@ const Roadmap = () => {
                 </div>
             </div>
             <div className="content-area">
-                <Stages stageIndex={stageIndex} />
+                <Stages showIndex={showIndex} hideIndex={hideIndex} />
             </div>
         </>
     );
