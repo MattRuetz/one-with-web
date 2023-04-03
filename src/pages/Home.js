@@ -100,7 +100,9 @@ const Home = () => {
                 },
                 {
                     backgroundPosition: () =>
-                        `30% ${window.innerHeight * (1 - getRatio(roadmap))}px`,
+                        `30% ${
+                            window.innerHeight * (0.7 - getRatio(roadmap))
+                        }px`,
                     ease: 'none',
                     scrollTrigger: {
                         trigger: roadmap,
@@ -286,11 +288,11 @@ const Home = () => {
                                     of your site's features directly from their
                                     phone.
                                 </p>
-                                <p className="ps-3">
+                                <p className="ps-md-3">
                                     One With Web knows this, and we implement
                                     this principle into all of our work.
                                 </p>
-                                <span className="ps-5">
+                                <span className="ps-md-5">
                                     That's why{' '}
                                     <span className="color-text">
                                         every website we design is made

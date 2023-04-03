@@ -95,7 +95,7 @@ section {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 .l-r-pannel-wrap {
@@ -442,7 +442,7 @@ button a {
 }
 .screenshot-triple:hover > .first,
 .screenshot-triple.activated > .first {
-    transform: translate(-10%, -60%) rotate3d(0.2, 0.2, 0, 40deg);
+    transform: translate(-13%, -10vh) rotate3d(0.2, 0.2, 0, 40deg);
     box-shadow: -18px 18px 20px 10px rgba(0, 0, 0, 0.5);
 }
 .screenshot-triple:hover > .second,
@@ -452,7 +452,7 @@ button a {
 }
 .screenshot-triple:hover > .third,
 .screenshot-triple.activated > .third {
-    transform: translate(10%, 60%) rotate3d(0.2, 0.2, 0, 20deg);
+    transform: translate(13%, 10vh) rotate3d(0.2, 0.2, 0, 20deg);
     box-shadow: -5px 5px 10px 0px rgba(0, 0, 0, 0.5);
 }
 .screenshot-triple img {
@@ -463,14 +463,14 @@ button a {
 }
 .screenshot-triple .first {
     position: absolute;
-    left: 10%;
+    /* left: 10%; */
 }
 .screenshot-triple .second {
     position: absolute;
 }
 .screenshot-triple .third {
     position: absolute;
-    left: 30%;
+    /* left: 30%; */
     z-index: 1;
 }
 

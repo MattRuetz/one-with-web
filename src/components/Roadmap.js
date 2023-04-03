@@ -20,7 +20,6 @@ const Roadmap = () => {
                     start: 'top top',
                     end: 'bottom bottom',
                     pin: true,
-                    // markers: true,
                 },
             });
 
@@ -30,11 +29,42 @@ const Roadmap = () => {
                     trigger: '.seg-0',
                     start: 'top bottom',
                     end: 'top top',
-                    // markers: true,
                     scrub: 2,
+                },
+            });
+
+            const content = document.querySelector('.content-area');
+
+            tl2.from(content, {
+                y: 1000,
+                scrollTrigger: {
+                    trigger: '#roadmap',
+                    start: 'top center',
+                    end: `+=${window.innerHeight * 0.5}`,
+                    scrub: 1,
+                    markers: true,
+                    onEnter: () => {
+                        content.classList.remove('hidden');
+                    },
+                    onLeaveBack: () => {
+                        content.classList.add('hidden');
+                    },
+                },
+            });
+
+            tl2.to(content, {
+                // y: -1000,
+                scrollTrigger: {
+                    trigger: '#roadmap',
+                    start: 'bottom bottom',
+                    end: `+=${window.innerHeight}`,
+                    scrub: 1,
+                    markers: true,
                     onLeave: () => {
-                        setShowIndex(0);
-                        setHideIndex(-1);
+                        content.classList.add('hidden');
+                    },
+                    onEnterBack: () => {
+                        content.classList.remove('hidden');
                     },
                 },
             });
@@ -102,7 +132,7 @@ const Roadmap = () => {
                     ))}
                 </div>
             </div>
-            <div className="content-area">
+            <div className="content-area hidden">
                 <Stages showIndex={showIndex} hideIndex={hideIndex} />
             </div>
         </>

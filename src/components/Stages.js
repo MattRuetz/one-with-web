@@ -6,8 +6,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Stages = ({ showIndex, hideIndex }) => {
     useEffect(() => {
-        console.log(showIndex, hideIndex);
-
         let hideElement = document.querySelector(`.content-ind-${hideIndex}`);
         let showElement = document.querySelector(`.content-ind-${showIndex}`);
 
@@ -24,7 +22,7 @@ const Stages = ({ showIndex, hideIndex }) => {
                 opacity: 0,
                 duration: 1,
                 onStart: () => {
-                    showElement.classList.remove('hidden');
+                    showElement && showElement.classList.remove('hidden');
                     document
                         .querySelectorAll('.stage-content')
                         .forEach(
@@ -39,12 +37,18 @@ const Stages = ({ showIndex, hideIndex }) => {
 
     return (
         <>
-            <div className="content-ind--1">NULL--</div>
-            <div className="stage-content content-ind-0 hidden">Index 0</div>
-            <div className="stage-content content-ind-1 hidden">Index 1</div>
-            <div className="stage-content content-ind-2 hidden">Index 2</div>
-            <div className="stage-content content-ind-3 hidden">Index 3</div>
-            <div className="stage-content content-ind-4 hidden">NULL</div>
+            <div className="stage-content content-ind-0 hidden">
+                <h1 className="stage-heading">Planning</h1>
+            </div>
+            <div className="stage-content content-ind-1 hidden">
+                <h1 className="stage-heading">Design</h1>
+            </div>
+            <div className="stage-content content-ind-2 hidden">
+                <h1 className="stage-heading">Development</h1>
+            </div>
+            <div className="stage-content content-ind-3 hidden">
+                <h1 className="stage-heading">Launch & Maintenance</h1>
+            </div>
         </>
     );
 };
