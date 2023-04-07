@@ -13,85 +13,89 @@ const Roadmap = () => {
     useEffect(() => {
         const tl2 = gsap.timeline();
         // create context. This function is invoked immediately and all GSAP animations and ScrollTriggers created during the execution of this function get recorded so we can revert() them later (cleanup)
+
+        // Cache Selectors
+        const barContainer = document.querySelector('.bar-container');
+        const content = document.querySelector('.content-area');
+        const fillItems = document.querySelectorAll('.animate-fill');
+
+        // Define callback functions
+        function showContent() {
+            content.classList.remove('hidden');
+        }
+        function hideContent() {
+            content.classList.add('hidden');
+        }
+        function incrementStage(index) {
+            setShowIndex(index + 1);
+            setHideIndex(index);
+        }
+        function decrementStage(index) {
+            setShowIndex(index);
+            setHideIndex(index + 1);
+        }
+
         let ctx = gsap.context(() => {
-            tl2.to('.bar-container', {
+            tl2.to(barContainer, {
                 scrollTrigger: {
-                    trigger: '.bar-container',
+                    trigger: barContainer,
                     start: 'top top',
                     end: 'bottom bottom',
                     pin: true,
                 },
-            });
-
-            tl2.from('.seg-0', {
-                scaleY: 0,
-                scrollTrigger: {
-                    trigger: '.seg-0',
-                    start: 'top bottom',
-                    end: 'top top',
-                    scrub: 2,
-                },
-            });
-
-            const content = document.querySelector('.content-area');
-
-            tl2.from(content, {
-                y: 1000,
-                scrollTrigger: {
-                    trigger: '#roadmap',
-                    start: 'top center',
-                    end: `+=${window.innerHeight * 0.5}`,
-                    scrub: 1,
-                    markers: true,
-                    onEnter: () => {
-                        content.classList.remove('hidden');
+            })
+                .from('.seg-0', {
+                    scaleY: 0,
+                    scrollTrigger: {
+                        trigger: '.seg-0',
+                        start: 'top bottom',
+                        end: 'top top',
+                        scrub: 2,
                     },
-                    onLeaveBack: () => {
-                        content.classList.add('hidden');
+                })
+                .from(content, {
+                    y: 1000,
+                    scrollTrigger: {
+                        trigger: '#roadmap',
+                        start: 'top center',
+                        end: `+=${window.innerHeight * 0.5}`,
+                        scrub: 1,
+                        markers: true,
+                        onEnter: showContent,
+                        onLeaveBack: hideContent,
                     },
-                },
-            });
-
-            tl2.to(content, {
-                // y: -1000,
-                scrollTrigger: {
-                    trigger: '#roadmap',
-                    start: 'bottom bottom',
-                    end: `+=${window.innerHeight}`,
-                    scrub: 1,
-                    markers: true,
-                    onLeave: () => {
-                        content.classList.add('hidden');
-                    },
-                    onEnterBack: () => {
-                        content.classList.remove('hidden');
-                    },
-                },
-            });
-
-            document
-                .querySelectorAll('.animate-fill')
-                .forEach((fillItem, index) =>
-                    tl2.from(fillItem, {
-                        scaleY: 0,
-                        transformOrigin: 'left top',
-                        scrollTrigger: {
-                            trigger: '#roadmap',
-                            start: `${(index + 1) * window.innerHeight} center`,
-                            end: `+=${window.innerHeight * 0.1}`,
-                            // markers: true,
-                            scrub: 2,
-                            onLeave: () => {
-                                setShowIndex(index + 1);
-                                setHideIndex(index);
-                            },
-                            onLeaveBack: () => {
-                                setShowIndex(index);
-                                setHideIndex(index + 1);
-                            },
+                })
+                .to(content, {
+                    scrollTrigger: {
+                        trigger: '#roadmap',
+                        start: 'bottom bottom',
+                        end: `+=${window.innerHeight}`,
+                        scrub: 1,
+                        markers: true,
+                        onLeave: () => {
+                            content.classList.add('hidden');
                         },
-                    })
-                );
+                        onEnterBack: () => {
+                            content.classList.remove('hidden');
+                        },
+                    },
+                });
+
+            fillItems.forEach((fillItem, index) =>
+                tl2.from(fillItem, {
+                    scaleY: 0,
+                    transformOrigin: 'left top',
+                    scrollTrigger: {
+                        trigger: '#roadmap',
+                        start: `${(index + 1) * window.innerHeight} center`,
+                        end: `+=${window.innerHeight * 0.1}`,
+                        // markers: true,
+                        scrub: 2,
+                        onLeave: () => incrementStage(index),
+                        onLeaveBack: () => decrementStage(index),
+                    },
+                })
+            );
         });
 
         return () => ctx.revert(); // cleanup
