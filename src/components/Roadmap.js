@@ -10,7 +10,12 @@ const Roadmap = () => {
     const [showIndex, setShowIndex] = useState(0);
     const [hideIndex, setHideIndex] = useState(-1);
 
+    const stages = ['Design', 'Development'];
+
     useEffect(() => {
+        const roadmapSection = document.getElementById('roadmap');
+        roadmapSection.style.setProperty('height', `${100 * stages.length}vh`);
+
         const tl2 = gsap.timeline();
         // create context. This function is invoked immediately and all GSAP animations and ScrollTriggers created during the execution of this function get recorded so we can revert() them later (cleanup)
 
@@ -57,7 +62,7 @@ const Roadmap = () => {
                 .from(content, {
                     y: 1000,
                     scrollTrigger: {
-                        trigger: '#roadmap',
+                        trigger: roadmapSection,
                         start: 'top center',
                         end: `+=${window.innerHeight * 0.5}`,
                         scrub: 1,
@@ -69,7 +74,7 @@ const Roadmap = () => {
                 //
                 .to(content, {
                     scrollTrigger: {
-                        trigger: '#roadmap',
+                        trigger: roadmapSection,
                         start: 'bottom bottom',
                         end: `+=${window.innerHeight}`,
                         scrub: 1,
@@ -84,7 +89,7 @@ const Roadmap = () => {
                     scaleY: 0,
                     transformOrigin: 'left top',
                     scrollTrigger: {
-                        trigger: '#roadmap',
+                        trigger: roadmapSection,
                         start: `${(index + 1) * window.innerHeight} center`,
                         end: `+=${window.innerHeight * 0.1}`,
                         // markers: true,
@@ -99,12 +104,6 @@ const Roadmap = () => {
         return () => ctx.revert(); // cleanup
     }, []);
 
-    const stages = [
-        'Planning',
-        'Design',
-        'Development',
-        'Launch & Maintenance',
-    ];
     return (
         <>
             <div id="bar-container" className="bar-container">
@@ -126,7 +125,7 @@ const Roadmap = () => {
                             <div
                                 className={`bar-filled animate-fill seg-${
                                     index + 1
-                                }`}
+                                } total-seg-${stages.length}`}
                             ></div>
                             <div className="node indicator inactive"></div>
                             <div className="node text">{stage}</div>
@@ -135,7 +134,11 @@ const Roadmap = () => {
                 </div>
             </div>
             <div className="content-area hidden">
-                <Stages showIndex={showIndex} hideIndex={hideIndex} />
+                <Stages
+                    showIndex={showIndex}
+                    hideIndex={hideIndex}
+                    stages={stages}
+                />
             </div>
         </>
     );

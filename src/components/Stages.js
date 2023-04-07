@@ -4,7 +4,7 @@ import gsap from 'gsap';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Stages = ({ showIndex, hideIndex, tl }) => {
+const Stages = ({ showIndex, hideIndex, stages }) => {
     useEffect(() => {
         let hideElement = document.querySelector(`.content-ind-${hideIndex}`);
         let showElement = document.querySelector(`.content-ind-${showIndex}`);
@@ -38,18 +38,13 @@ const Stages = ({ showIndex, hideIndex, tl }) => {
 
     return (
         <>
-            <div className="stage-content content-ind-0">
-                <h1 className="stage-heading">Planning</h1>
-            </div>
-            <div className="stage-content content-ind-1">
-                <h1 className="stage-heading">Design</h1>
-            </div>
-            <div className="stage-content content-ind-2">
-                <h1 className="stage-heading">Development</h1>
-            </div>
-            <div className="stage-content content-ind-3">
-                <h1 className="stage-heading">Launch & Maintenance</h1>
-            </div>
+            {stages.map((stage, index) => {
+                return (
+                    <div className={`stage-content content-ind-${index}`}>
+                        <h1 className="stage-heading">{stage}</h1>
+                    </div>
+                );
+            })}
         </>
     );
 };

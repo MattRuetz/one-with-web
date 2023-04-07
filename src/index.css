@@ -522,10 +522,30 @@ button a {
     width: 15px;
     border-radius: 10px;
     margin-top: 10px;
-    height: calc(25vh + 10px);
+
     position: absolute;
     left: calc(1rem - 7.5px);
     z-index: 0;
+}
+
+#roadmap .bar-filled.seg-0 {
+    height: calc(25vh + 10px);
+}
+
+#roadmap .bar-filled.total-seg-2 {
+    height: calc(50vh + 10px);
+}
+
+#roadmap .bar-filled.total-seg-3 {
+    height: calc(33vh + 10px);
+}
+
+#roadmap .bar-filled.total-seg-4 {
+    height: calc(25vh + 10px);
+}
+
+#roadmap .bar-filled.total-seg-5 {
+    height: calc(20vh + 10px);
 }
 
 #roadmap .bar-filled.seg-0 {

@@ -398,7 +398,7 @@ const Home = () => {
                 </div>
             </section>
             <section id="roadmap" className="parralax-gradient">
-                <Roadmap tl={tl} />
+                <Roadmap />
             </section>
             <VidCarousel />
         </>
