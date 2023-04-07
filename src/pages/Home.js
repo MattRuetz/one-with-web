@@ -19,6 +19,8 @@ import Roadmap from '../components/Roadmap';
 gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {
+    const stages = ['Design', 'Development', 'SEO', 'Maintenance'];
+
     // const iPhoneFrame = '../assets/iPhone_half.png';
     const tl = gsap.timeline();
 
@@ -398,7 +400,7 @@ const Home = () => {
                 </div>
             </section>
             <section id="roadmap" className="parralax-gradient">
-                <Roadmap />
+                <Roadmap stages={stages} />
             </section>
             <VidCarousel />
         </>

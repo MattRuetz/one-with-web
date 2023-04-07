@@ -6,11 +6,9 @@ import Stages from './Stages';
 gsap.registerPlugin(ScrollTrigger);
 
 // Stages is an array of strings, each representing a stage
-const Roadmap = () => {
+const Roadmap = ({ stages }) => {
     const [showIndex, setShowIndex] = useState(0);
     const [hideIndex, setHideIndex] = useState(-1);
-
-    const stages = ['Design', 'Development'];
 
     useEffect(() => {
         const roadmapSection = document.getElementById('roadmap');
@@ -102,7 +100,7 @@ const Roadmap = () => {
         });
 
         return () => ctx.revert(); // cleanup
-    }, []);
+    }, [stages]);
 
     return (
         <>
