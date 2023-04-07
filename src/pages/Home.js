@@ -20,78 +20,80 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {
     // const iPhoneFrame = '../assets/iPhone_half.png';
+    const tl = gsap.timeline();
 
     useEffect(() => {
-        const tl = gsap.timeline();
         // create context. This function is invoked immediately and all GSAP animations and ScrollTriggers created during the execution of this function get recorded so we can revert() them later (cleanup)
         let ctx = gsap.context(() => {
+            // add all the animations to the timeline
             tl.from('.pannel-l', {
                 duration: 0.6,
                 delay: '2s',
                 x: -500,
                 opacity: 0,
-            });
-            tl.from('.pannel-r', {
-                duration: 0.7,
-                delay: '2s',
-                y: -50,
-                opacity: 0,
-                ease: 'Ease',
-            });
-            tl.from('.pannel-r .ne-ith-eb span', {
-                duration: 0.4,
-                delay: '1s',
-                x: -100,
-                opacity: 0,
-                stagger: 0.15,
-            });
-            tl.from('#shineCards', {
-                duration: 0.5,
-                x: -200,
-                opacity: 0,
-                scrollTrigger: {
-                    trigger: '#shineCards',
-                    start: '30% bottom',
-                    end: 'top 30%',
-                    scrub: 2,
-                },
-            });
-            tl.from('.screen-preview.mobile', {
-                duration: 0.5,
-                x: 400,
-                opacity: 0,
-                scrollTrigger: {
-                    trigger: '.screen-preview.mobile',
-                    start: 'top 90%',
-                    end: '+=30px',
-                    scrub: 3,
-                },
-            });
-            tl.from('.screenshot-triple', {
-                scrollTrigger: {
-                    trigger: '.screenshot-triple',
-                    start: 'top 70%',
-                    end: '+=0',
-                    scrub: 2,
-                    // markers: true,
-                    onEnter: () =>
-                        document
-                            .querySelector('.screenshot-triple')
-                            .classList.add('activated'),
-                    onEnterBack: () =>
-                        document
-                            .querySelector('.screenshot-triple')
-                            .classList.remove('activated'),
-                },
-            });
+            })
+                .from('.pannel-r', {
+                    duration: 0.7,
+                    delay: '2s',
+                    y: -50,
+                    opacity: 0,
+                    ease: 'Ease',
+                })
+                .from('.pannel-r .ne-ith-eb span', {
+                    duration: 0.4,
+                    delay: '1s',
+                    x: -100,
+                    opacity: 0,
+                    stagger: 0.15,
+                })
+                .from('#shineCards', {
+                    duration: 0.5,
+                    x: -200,
+                    opacity: 0,
+                    scrollTrigger: {
+                        trigger: '#shineCards',
+                        start: '30% bottom',
+                        end: 'top 30%',
+                        scrub: 2,
+                    },
+                })
+                .from('.screen-preview.mobile', {
+                    duration: 0.5,
+                    x: 400,
+                    opacity: 0,
+                    scrollTrigger: {
+                        trigger: '.screen-preview.mobile',
+                        start: 'top 90%',
+                        end: '+=30px',
+                        scrub: 3,
+                    },
+                })
+                .from('.screenshot-triple', {
+                    scrollTrigger: {
+                        trigger: '.screenshot-triple',
+                        start: 'top 70%',
+                        end: '+=0',
+                        scrub: 2,
+                        // markers: true,
+                        onEnter: () =>
+                            document
+                                .querySelector('.screenshot-triple')
+                                .classList.add('activated'),
+                        onEnterBack: () =>
+                            document
+                                .querySelector('.screenshot-triple')
+                                .classList.remove('activated'),
+                    },
+                });
 
+            // add the parralax-gradient animation to the timeline
             let getRatio = (el) =>
                 window.innerHeight / (window.innerHeight + el.offsetHeight);
 
             const roadmap = document.getElementById('roadmap');
 
             console.log(getRatio(roadmap));
-            gsap.fromTo(
+            tl.fromTo(
                 '.parralax-gradient',
                 {
                     backgroundPosition: `50% ${
@@ -396,7 +398,7 @@ const Home = () => {
                 </div>
             </section>
             <section id="roadmap" className="parralax-gradient">
-                <Roadmap />
+                <Roadmap tl={tl} />
             </section>
             <VidCarousel />
         </>

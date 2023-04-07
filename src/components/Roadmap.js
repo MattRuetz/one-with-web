@@ -7,7 +7,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 // Stages is an array of strings, each representing a stage
 const Roadmap = () => {
-    const [showIndex, setShowIndex] = useState(-1);
+    const [showIndex, setShowIndex] = useState(0);
     const [hideIndex, setHideIndex] = useState(-1);
 
     useEffect(() => {
@@ -53,6 +53,7 @@ const Roadmap = () => {
                         scrub: 2,
                     },
                 })
+                // Planning slides up when entering roadmap section
                 .from(content, {
                     y: 1000,
                     scrollTrigger: {
@@ -65,6 +66,7 @@ const Roadmap = () => {
                         onLeaveBack: hideContent,
                     },
                 })
+                //
                 .to(content, {
                     scrollTrigger: {
                         trigger: '#roadmap',
@@ -72,15 +74,11 @@ const Roadmap = () => {
                         end: `+=${window.innerHeight}`,
                         scrub: 1,
                         markers: true,
-                        onLeave: () => {
-                            content.classList.add('hidden');
-                        },
-                        onEnterBack: () => {
-                            content.classList.remove('hidden');
-                        },
+                        onLeave: hideContent,
+                        onEnterBack: showContent,
                     },
                 });
-
+            // animates progress bar filling between stages
             fillItems.forEach((fillItem, index) =>
                 tl2.from(fillItem, {
                     scaleY: 0,

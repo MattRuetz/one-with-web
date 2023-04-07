@@ -4,7 +4,7 @@ import gsap from 'gsap';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Stages = ({ showIndex, hideIndex }) => {
+const Stages = ({ showIndex, hideIndex, tl }) => {
     useEffect(() => {
         let hideElement = document.querySelector(`.content-ind-${hideIndex}`);
         let showElement = document.querySelector(`.content-ind-${showIndex}`);
@@ -15,20 +15,21 @@ const Stages = ({ showIndex, hideIndex }) => {
             tl3.to(hideElement, {
                 yPercent: showIndex > hideIndex ? '150' : '-150',
                 opacity: 0,
-                duration: 0.5,
-            });
-            tl3.from(showElement, {
+                duration: 0.1,
+            }).from(showElement, {
                 yPercent: showIndex > hideIndex ? '-150' : '150',
                 opacity: 0,
-                duration: 1,
+                duration: 0.5,
                 onStart: () => {
                     showElement && showElement.classList.remove('hidden');
                     document
                         .querySelectorAll('.stage-content')
-                        .forEach(
-                            (item, i) =>
-                                i !== showIndex && item.classList.add('hidden')
-                        );
+                        .forEach((item, i) => {
+                            if (i !== showIndex) {
+                                item.classList.add('hidden');
+                                console.log('hiding ' + i + ' ' + showIndex);
+                            }
+                        });
                 },
             });
         });
@@ -37,16 +38,16 @@ const Stages = ({ showIndex, hideIndex }) => {
 
     return (
         <>
-            <div className="stage-content content-ind-0 hidden">
+            <div className="stage-content content-ind-0">
                 <h1 className="stage-heading">Planning</h1>
             </div>
-            <div className="stage-content content-ind-1 hidden">
+            <div className="stage-content content-ind-1">
                 <h1 className="stage-heading">Design</h1>
             </div>
-            <div className="stage-content content-ind-2 hidden">
+            <div className="stage-content content-ind-2">
                 <h1 className="stage-heading">Development</h1>
             </div>
-            <div className="stage-content content-ind-3 hidden">
+            <div className="stage-content content-ind-3">
                 <h1 className="stage-heading">Launch & Maintenance</h1>
             </div>
         </>
