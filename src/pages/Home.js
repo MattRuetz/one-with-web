@@ -76,7 +76,6 @@ const Home = () => {
             start: "top 70%",
             end: "+=0",
             scrub: 2,
-            // markers: true,
             onEnter: () =>
               document
                 .querySelector(".screenshot-triple")

@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
 
+import StageContent from "./StageContent";
+
 gsap.registerPlugin(ScrollTrigger);
 
 const Stages = ({ showIndex, hideIndex, stages }) => {
@@ -39,6 +41,7 @@ const Stages = ({ showIndex, hideIndex, stages }) => {
         return (
           <div className={`stage-content content-ind-${index}`}>
             <h1 className='stage-heading'>{stage}</h1>
+            <StageContent stageName={stage} />
           </div>
         );
       })}
