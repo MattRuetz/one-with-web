@@ -119,7 +119,7 @@ const Roadmap = ({ stages, timeline }) => {
                   index + 1
                 } total-seg-${stages.length}`}
               ></div>
-              <div className='node indicator inactive'></div>
+              <div className={`node ind-${index} indicator inactive`}></div>
               <div className='node text'>{stage}</div>
             </div>
           ))}

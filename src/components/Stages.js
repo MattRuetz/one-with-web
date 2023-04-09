@@ -11,6 +11,15 @@ const Stages = ({ showIndex, hideIndex, stages }) => {
     let hideElement = document.querySelector(`.content-ind-${hideIndex}`);
     let showElement = document.querySelector(`.content-ind-${showIndex}`);
 
+    document
+      .querySelector(`.node.indicator.ind-${showIndex}`)
+      .classList.remove("inactive");
+
+    showIndex < hideIndex &&
+      document
+        .querySelector(`.node.indicator.ind-${hideIndex}`)
+        .classList.add("inactive");
+
     let ctx = gsap.context(() => {
       gsap.to(hideElement, {
         yPercent: showIndex > hideIndex ? "150" : "-150",
