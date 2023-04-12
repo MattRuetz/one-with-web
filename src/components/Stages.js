@@ -1,61 +1,62 @@
-import { useEffect } from "react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import gsap from "gsap";
+import { useEffect } from 'react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import gsap from 'gsap';
 
-import StageContent from "./StageContent";
+import StageContent from './StageContent';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Stages = ({ showIndex, hideIndex, stages }) => {
-  useEffect(() => {
-    let hideElement = document.querySelector(`.content-ind-${hideIndex}`);
-    let showElement = document.querySelector(`.content-ind-${showIndex}`);
+    useEffect(() => {
+        let hideElement = document.querySelector(`.content-ind-${hideIndex}`);
+        let showElement = document.querySelector(`.content-ind-${showIndex}`);
 
-    document
-      .querySelector(`.node.indicator.ind-${showIndex}`)
-      .classList.remove("inactive");
+        document
+            .querySelector(`.node.indicator.ind-${showIndex}`)
+            .classList.remove('inactive');
 
-    showIndex < hideIndex &&
-      document
-        .querySelector(`.node.indicator.ind-${hideIndex}`)
-        .classList.add("inactive");
+        showIndex < hideIndex &&
+            document
+                .querySelector(`.node.indicator.ind-${hideIndex}`)
+                .classList.add('inactive');
 
-    let ctx = gsap.context(() => {
-      gsap.to(hideElement, {
-        yPercent: showIndex > hideIndex ? "150" : "-150",
-        opacity: 0,
-        duration: 0.1,
-      });
-      gsap.from(showElement, {
-        yPercent: showIndex > hideIndex ? "-150" : "150",
-        opacity: 0,
-        duration: 0.5,
-        onStart: () => {
-          showElement && showElement.classList.remove("hidden");
-          document.querySelectorAll(".stage-content").forEach((item, i) => {
-            if (i !== showIndex) {
-              item.classList.add("hidden");
-              console.log("hiding " + i + " " + showIndex);
-            }
-          });
-        },
-      });
-    });
-    return () => ctx.revert(); // cleanup
-  }, [showIndex, hideIndex]);
+        let ctx = gsap.context(() => {
+            // gsap.to(hideElement, {
+            //     yPercent: showIndex > hideIndex ? '150' : '-150',
+            //     opacity: 0,
+            //     duration: 0.5,
+            // });
+            gsap.from(showElement, {
+                yPercent: showIndex > hideIndex ? '-150' : '150',
+                opacity: 0,
+                duration: 0.5,
+                onStart: () => {
+                    showElement && showElement.classList.remove('hidden');
+                    document
+                        .querySelectorAll('.stage-content')
+                        .forEach((item, i) => {
+                            if (i !== showIndex) {
+                                item.classList.add('hidden');
+                            }
+                        });
+                },
+            });
+        });
+        return () => ctx.revert(); // cleanup
+    }, [showIndex, hideIndex]);
 
-  return (
-    <>
-      {stages.map((stage, index) => {
-        return (
-          <div className={`stage-content content-ind-${index}`}>
-            <h1 className='stage-heading'>{stage}</h1>
-            <StageContent stageName={stage} />
-          </div>
-        );
-      })}
-    </>
-  );
+    return (
+        <>
+            {stages.map((stage, index) => {
+                return (
+                    <div className={`stage-content content-ind-${index}`}>
+                        <h1 className="stage-heading">{stage}</h1>
+                        <StageContent stageName={stage} />
+                    </div>
+                );
+            })}
+        </>
+    );
 };
 
 export default Stages;
